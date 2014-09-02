@@ -1,0 +1,194 @@
+@black:#000;
+@white:#fff;
+@orange:#f60;
+@green:#00B5AD;
+@blue:#52BAD5;
+@red:#D55A5A;
+@brown:#006965;
+
+body{
+    background:#eee;
+}
+.layout-defaultCMSphp,
+.template-loginphp.layout-defaultphp{
+    &.extended{
+        #global-menu{
+            width:8%;
+            #menu-container{
+                .menu-item{
+                    a{
+                        padding:0.6em 0;
+                        text-decoration:none;
+                        .title{
+                            display:block;
+                        }
+                    }
+                }
+            }
+        }
+        #content-wrapper{
+            width:92%;
+            margin-left:8%;
+            transition:all 0.3s;
+        }
+    }
+    #global-menu{
+        position:fixed;
+        left:0;
+        top:0;
+        bottom:0;
+        background:@blue;
+        width:4em;
+        transition:all 0.3s;
+        #logo{
+            text-align:center;
+            padding: 0.05em;
+            font-size: 2.6em;
+            a{
+                color:@white;
+            }
+        }
+        #menu-container{
+            border-radius: 5px 0 0 0;
+            overflow: auto;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 2em;
+            top: 4em;
+            background: @white;
+            .menu-item{
+                a{
+                    text-align: center;
+                    font-size: 1.5em;
+                    background: @white;
+                    padding: 0.5em 0em;
+                    display:block;
+                    color:@black;
+                    transition:width 0.3s, background 0.3s;
+                    width:100%;
+                    text-decoration:none;
+                    &:hover, &.active{
+                        background:@brown;
+                        color:@white;
+                    }
+                    .title{
+                        display:none;
+                        font-size: 0.7em;
+                    }
+                }
+            }
+        }
+        #expand-menu{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -0.6em;
+            font-size: 1.5em;
+            a{
+                color:@white;
+                text-decoration:none;
+            }
+        }
+    }
+    #content-wrapper{
+        width:95%;
+        margin-left:5%;
+        a{
+            text-decoration:none;
+            font-weight:bold;
+            color:darken(@blue,15%);
+            &:hover{
+                color:@blue;
+            }
+        }
+        #content-title, #content{
+            padding:0 2%;
+        }
+        #content-title{
+            color:@blue;
+        }
+        #content-nav{
+            float:right;
+            margin:0 2%;
+            padding: 0 1%;
+            .ui.basic.button{
+                background:darken(@white,10%)!important;
+                &:hover{
+                    background:@white!important;
+                }
+                &.cta{
+                    background:@green!important;
+                    color: @white!important;
+                    &:hover{
+                        background:lighten(@green, 10%)!important;
+                        color:@black!important;
+                    }
+                }
+            }
+        }
+        #content{
+            tr{
+                td.action{
+                    text-align:right;
+                }
+            }
+            .ui.basic.button.white{
+                &:hover{
+                    background:@white!important;
+                }
+            }
+            .ui.form{
+                width:95%;
+                margin:0 auto 1em;
+                max-width:750px;
+            }
+        }
+    }
+}
+@media (max-width: 950px) and (min-width: 650px){
+    #content-wrapper {
+        width: 92%!important;
+        margin-left: 8%!important;
+    }
+}
+
+@reset-position{
+    position:inherit!important;
+    top:auto!important;
+    left:auto!important;
+    right:auto!important;
+    bottom:auto!important;
+}
+
+@media (max-width: 650px) {
+    #content-wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+    #global-menu{
+        @reset-position;
+        width:100%!important;
+        #menu-container{
+            @reset-position;
+            border-radius:0!important;
+        }
+    }
+    table{
+        td{
+            text-align:center!important;
+        }
+    }
+}
+
+
+
+.explainText{
+    display:block;
+    font-weight:bold;
+    font-size:0.8em;
+    margin:1em 0;
+}
+.field.avatar{
+    text-align:right;
+}

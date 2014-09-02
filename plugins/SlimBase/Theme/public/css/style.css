@@ -1,0 +1,193 @@
+body {
+  background: #eee;
+}
+.layout-defaultCMSphp.extended #global-menu,
+.template-loginphp.layout-defaultphp.extended #global-menu {
+  width: 8%;
+}
+.layout-defaultCMSphp.extended #global-menu #menu-container .menu-item a,
+.template-loginphp.layout-defaultphp.extended #global-menu #menu-container .menu-item a {
+  padding: 0.6em 0;
+  text-decoration: none;
+}
+.layout-defaultCMSphp.extended #global-menu #menu-container .menu-item a .title,
+.template-loginphp.layout-defaultphp.extended #global-menu #menu-container .menu-item a .title {
+  display: block;
+}
+.layout-defaultCMSphp.extended #content-wrapper,
+.template-loginphp.layout-defaultphp.extended #content-wrapper {
+  width: 92%;
+  margin-left: 8%;
+  transition: all 0.3s;
+}
+.layout-defaultCMSphp #global-menu,
+.template-loginphp.layout-defaultphp #global-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #52BAD5;
+  width: 4em;
+  transition: all 0.3s;
+}
+.layout-defaultCMSphp #global-menu #logo,
+.template-loginphp.layout-defaultphp #global-menu #logo {
+  text-align: center;
+  padding: 0.05em;
+  font-size: 2.6em;
+}
+.layout-defaultCMSphp #global-menu #logo a,
+.template-loginphp.layout-defaultphp #global-menu #logo a {
+  color: #fff;
+}
+.layout-defaultCMSphp #global-menu #menu-container,
+.template-loginphp.layout-defaultphp #global-menu #menu-container {
+  border-radius: 5px 0 0 0;
+  overflow: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2em;
+  top: 4em;
+  background: #fff;
+}
+.layout-defaultCMSphp #global-menu #menu-container .menu-item a,
+.template-loginphp.layout-defaultphp #global-menu #menu-container .menu-item a {
+  text-align: center;
+  font-size: 1.5em;
+  background: #fff;
+  padding: 0.5em 0em;
+  display: block;
+  color: #000;
+  transition: width 0.3s, background 0.3s;
+  width: 100%;
+  text-decoration: none;
+}
+.layout-defaultCMSphp #global-menu #menu-container .menu-item a:hover,
+.layout-defaultCMSphp #global-menu #menu-container .menu-item a.active,
+.template-loginphp.layout-defaultphp #global-menu #menu-container .menu-item a:hover,
+.template-loginphp.layout-defaultphp #global-menu #menu-container .menu-item a.active {
+  background: #006965;
+  color: #fff;
+}
+.layout-defaultCMSphp #global-menu #menu-container .menu-item a .title,
+.template-loginphp.layout-defaultphp #global-menu #menu-container .menu-item a .title {
+  display: none;
+  font-size: 0.7em;
+}
+.layout-defaultCMSphp #global-menu #expand-menu,
+.template-loginphp.layout-defaultphp #global-menu #expand-menu {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -0.6em;
+  font-size: 1.5em;
+}
+.layout-defaultCMSphp #global-menu #expand-menu a,
+.template-loginphp.layout-defaultphp #global-menu #expand-menu a {
+  color: #fff;
+  text-decoration: none;
+}
+.layout-defaultCMSphp #content-wrapper,
+.template-loginphp.layout-defaultphp #content-wrapper {
+  width: 95%;
+  margin-left: 5%;
+}
+.layout-defaultCMSphp #content-wrapper a,
+.template-loginphp.layout-defaultphp #content-wrapper a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #2b94b0;
+}
+.layout-defaultCMSphp #content-wrapper a:hover,
+.template-loginphp.layout-defaultphp #content-wrapper a:hover {
+  color: #52BAD5;
+}
+.layout-defaultCMSphp #content-wrapper #content-title,
+.layout-defaultCMSphp #content-wrapper #content,
+.template-loginphp.layout-defaultphp #content-wrapper #content-title,
+.template-loginphp.layout-defaultphp #content-wrapper #content {
+  padding: 0 2%;
+}
+.layout-defaultCMSphp #content-wrapper #content-title,
+.template-loginphp.layout-defaultphp #content-wrapper #content-title {
+  color: #52BAD5;
+}
+.layout-defaultCMSphp #content-wrapper #content-nav,
+.template-loginphp.layout-defaultphp #content-wrapper #content-nav {
+  float: right;
+  margin: 0 2%;
+  padding: 0 1%;
+}
+.layout-defaultCMSphp #content-wrapper #content-nav .ui.basic.button,
+.template-loginphp.layout-defaultphp #content-wrapper #content-nav .ui.basic.button {
+  background: #e6e6e6 !important;
+}
+.layout-defaultCMSphp #content-wrapper #content-nav .ui.basic.button:hover,
+.template-loginphp.layout-defaultphp #content-wrapper #content-nav .ui.basic.button:hover {
+  background: #fff !important;
+}
+.layout-defaultCMSphp #content-wrapper #content-nav .ui.basic.button.cta,
+.template-loginphp.layout-defaultphp #content-wrapper #content-nav .ui.basic.button.cta {
+  background: #00B5AD !important;
+  color: #fff !important;
+}
+.layout-defaultCMSphp #content-wrapper #content-nav .ui.basic.button.cta:hover,
+.template-loginphp.layout-defaultphp #content-wrapper #content-nav .ui.basic.button.cta:hover {
+  background: #00e8de !important;
+  color: #000 !important;
+}
+.layout-defaultCMSphp #content-wrapper #content tr td.action,
+.template-loginphp.layout-defaultphp #content-wrapper #content tr td.action {
+  text-align: right;
+}
+.layout-defaultCMSphp #content-wrapper #content .ui.basic.button.white:hover,
+.template-loginphp.layout-defaultphp #content-wrapper #content .ui.basic.button.white:hover {
+  background: #fff !important;
+}
+.layout-defaultCMSphp #content-wrapper #content .ui.form,
+.template-loginphp.layout-defaultphp #content-wrapper #content .ui.form {
+  width: 95%;
+  margin: 0 auto 1em;
+  max-width: 750px;
+}
+@media (max-width: 950px) and (min-width: 650px) {
+  #content-wrapper {
+    width: 92% !important;
+    margin-left: 8% !important;
+  }
+}
+@media (max-width: 650px) {
+  #content-wrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+  #global-menu {
+    position: inherit !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+  }
+  #global-menu #menu-container {
+    position: inherit !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    border-radius: 0 !important;
+  }
+  table td {
+    text-align: center !important;
+  }
+}
+.explainText {
+  display: block;
+  font-weight: bold;
+  font-size: 0.8em;
+  margin: 1em 0;
+}
+.field.avatar {
+  text-align: right;
+}

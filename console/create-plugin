@@ -1,0 +1,136 @@
+#!/usr/bin/env php
+<?php
+
+if (count($argv) == 1) {
+    echo PHP_EOL;
+    echo '==========================' . PHP_EOL;
+    echo 'SlimBase Plugin creator' . PHP_EOL;
+    echo '==========================' . PHP_EOL;
+    echo PHP_EOL;
+    echo 'Usage:' . PHP_EOL . PHP_EOL;
+    echo 'console\\create-plugin namespace plural-name singular-name ignore-case' . PHP_EOL;
+    echo PHP_EOL;
+    echo 'namespace:        namespace where this plugin belongs' . PHP_EOL;
+    echo 'plural-name:      Singular name for the plugin folder and Controller' . PHP_EOL;
+    echo 'singular-name:    Singular name for the plugin Model' . PHP_EOL;
+    echo 'ignore-case (*):  Ignore plural and singular name letter case - [0|1] default: 0' . PHP_EOL;
+    echo PHP_EOL;
+    echo '* - optional' . PHP_EOL;
+    echo PHP_EOL . PHP_EOL;
+    exit;
+}
+
+$namespace = $argv[1];
+$prefix = $argv[2];
+$singular = $argv[3];
+
+$ignoreCase = false;
+if (count($argv) > 4) {
+    $ignoreCase = (bool) $argv[4];
+}
+
+if (!$ignoreCase) {
+    $namespace = ucfirst(strtolower($namespace));
+    $pluginFolder = ucfirst(strtolower($prefix));
+    $modelName = ucfirst(strtolower($singular));
+} else {
+    $namespace = $namespace;
+    $pluginFolder = $prefix;
+    $modelName = $singular;
+}
+$where = explode('/', getcwd());
+$where = end($where);
+if ($where == 'console') {
+    chdir('..');
+}
+chdir('plugins/');
+if (!is_dir($namespace)) {
+    mkdir($namespace);
+}
+chdir($namespace);
+mkdir($pluginFolder);
+chdir($pluginFolder);
+mkdir('Controller');
+mkdir('Model');
+mkdir('View');
+mkdir('public');
+chdir('public');
+mkdir('img');
+mkdir('js');
+chdir('..');
+
+$status = true;
+
+$bootstrap = <<<EOT
+<?php
+  
+\x24prfx = '$pluginFolder';
+  
+require 'routes.php';
+EOT;
+$status = $status && file_put_contents('bootstrap.php', $bootstrap);
+
+
+$routes = <<<EOT
+<?php
+use \\ecoreng\\SlimBase\\PluginRouter as PR;
+  
+\x24app->map('/test', PR::pt('$namespace\\\\'. \x24prfx, '$pluginFolder:test'))->via('GET')->name(\x24prfx . 'Test');
+  
+EOT;
+$status = $status && file_put_contents('routes.php', $routes);
+
+
+$installer = <<<EOT
+<?php
+  
+namespace $namespace\\$pluginFolder;
+  
+Class Installer implements \\ecoreng\\SlimBase\\iInstaller
+{
+    public function install(){
+    }
+      
+    public function uninstall(){
+    }
+}
+EOT;
+$status = $status && file_put_contents('Installer.php', $installer);
+
+
+$controller = <<<EOT
+<?php
+  
+namespace $namespace\\$pluginFolder\\Controller;
+  
+use \\ecoreng\\SlimBase\\PluginRouter as PR;
+use $namespace\\$pluginFolder\\Model\\$modelName;
+  
+class $pluginFolder extends \\ecoreng\\SlimBase\\Controller
+{ 
+  
+}
+EOT;
+$status = $status && file_put_contents("Controller/$pluginFolder.php", $controller);
+
+
+$model = <<<EOT
+<?php
+namespace $namespace\\$pluginFolder\\Model;
+  
+class $modelName extends \\Illuminate\\Database\\Eloquent\\Model
+{
+  
+}
+EOT;
+$status = $status && file_put_contents("Model/$modelName.php", $model);
+
+
+$view = <<<EOT
+        test
+EOT;
+$status = $status && file_put_contents("View/getTest.php", $view);
+
+if ($status) {
+    echo 'Your plugin was created successfully.' . PHP_EOL . PHP_EOL;
+}

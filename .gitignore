@@ -1,0 +1,9 @@
+/vendor/*
+!/vendor/ecoreng
+/plugins/*
+!/plugins/SlimBase
+/plugins/SlimBase/*
+!/plugins/SlimBase/Theme
+/composer.lock
+/*~
+/tmp/*
